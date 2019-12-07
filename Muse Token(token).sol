@@ -16,11 +16,11 @@ pragma solidity ^0.4.23;
 
 
 /**
- * @title ERC20Basic
- * @dev Simpler version of ERC20 interface
+ * @title TRC20Basic
+ * @dev Simpler version of TRC20 interface
  * @dev see https://github.com/ethereum/EIPs/issues/179
  */
-contract ERC20Basic {
+contract TRC20Basic {
   function totalSupply() public view returns (uint256);
   function balanceOf(address who) public view returns (uint256);
   function transfer(address to, uint256 value) public returns (bool);
@@ -85,7 +85,7 @@ library SafeMath {
  * @title Basic token
  * @dev Basic version of StandardToken, with no allowances.
  */
-contract BasicToken is ERC20Basic {
+contract BasicToken is TRC20Basic {
   using SafeMath for uint256;
 
   mapping(address => uint256) balances;
@@ -127,10 +127,10 @@ contract BasicToken is ERC20Basic {
 
 
 /**
- * @title ERC20 interface
+ * @title TRC20 interface
  * @dev see https://github.com/ethereum/EIPs/issues/20
  */
-contract ERC20 is ERC20Basic {
+contract TRC20 is TRC20Basic {
   function allowance(address owner, address spender)
     public view returns (uint256);
 
@@ -147,13 +147,13 @@ contract ERC20 is ERC20Basic {
 
 
 /**
- * @title Standard ERC20 token
+ * @title Standard TRC20 token
  *
  * @dev Implementation of the basic standard token.
  * @dev https://github.com/ethereum/EIPs/issues/20
  * @dev Based on code by FirstBlood: https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol
  */
-contract StandardToken is ERC20, BasicToken {
+contract StandardToken is TRC20, BasicToken {
 
   mapping (address => mapping (address => uint256)) internal allowed;
 
@@ -332,7 +332,7 @@ contract Ownable {
 
 /**
  * @title Mintable token
- * @dev Simple ERC20 Token example, with mintable token creation
+ * @dev Simple TRC20 Token example, with mintable token creation
  * @dev Issue: * https://github.com/OpenZeppelin/openzeppelin-solidity/issues/120
  * Based on code by TokenMarketNet: https://github.com/TokenMarketNet/ico/blob/master/contracts/MintableToken.sol
  */
